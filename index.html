@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NonVeg_Resto</title>
+  <meta name="description" content="Pritam's Momos Basket – Authentic Momos Café. Order steamed, fried, tandoori momos and more. Black & yellow modern design." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Pritam's Momos Basket Home">
+        <div class="logo" aria-hidden="true">NONVEG</div>
+        <h1> NonVeg_Resto</h1>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="cart-btn" id="openCart" aria-label="Open cart">
+          🧺 Cart <span class="qty-badge" id="cartQty">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="container hero-wrap">
+      <div>
+        <h2>The Taste of Authenticity</h2>
+        <p>Freshly steamed, perfectly spiced, and served with love. Explore classic steamed, crispy fried, and smoky tandoori momos – all in one basket.</p>
+        <div style="display:flex; gap:10px; flex-wrap: wrap;">
+          <a href="#menu" class="cta">Explore Menu ➜</a>
+          <button class="cta secondary" id="quickReorder">Quick Re-order</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img class="hero-img" src="burger.jpeg" alt="Steaming hot plate of momos with chutney" />
+      </div>
+    </div>
+  </section>
+<!-- Slider Section -->
+  <section class="slider">
+    <div class="slider-wrapper">
+      <div class="slide"><img src="generated-image (16) (1).png" alt="Delicious Momos 1"></div>
+      <div class="slide"><img src="generated-image (15) (1).png" alt="Delicious Momos 2"></div>
+      <div class="slide"><img src="generated-image (16) (1).png" alt="Delicious Momos 3"></div>
+      
+    </div>
+    <button class="prev" aria-label="Previous Slide">❮</button>
+    <button class="next" aria-label="Next Slide">❯</button>
+  </section>
+  <!-- Menu & Filters -->
+  <section id="menu">
+    <div class="container">
+      <h3 class="section-title">Our Menu</h3>
+
+      <div class="toolbar">
+        <input id="search" class="input" type="search" placeholder="Search momos, sides, beverages..." aria-label="Search" />
+        <select id="sort" class="select" aria-label="Sort">
+          <option value="popularity">Sort: Popular</option>
+          <option value="priceAsc">Price: Low to High</option>
+          <option value="priceDesc">Price: High to Low</option>
+          <option value="name">Name A–Z</option>
+        </select>
+        <select id="category" class="select" aria-label="Category">
+          <option value="all">All Categories</option>
+          <option value="Veg">Veg Momos</option>
+          <option value="Non-Veg">Non-Veg Momos</option>
+          <option value="Tandoori">Tandoori</option>
+          <option value="Sides">Sides</option>
+          <option value="Beverages">Beverages</option>
+        </select>
+        <div class="chip-row" aria-label="Quick filters">
+          <button class="chip" data-filter="veg">Veg</button>
+          <button class="chip" data-filter="spicy">Spicy</button>
+          <button class="chip" data-filter="bestseller">Bestseller</button>
+        </div>
+      </div>
+
+      <div class="grid" id="grid" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- About -->
+ <section id="about" class="py-5" style="background-color:#fff8f0;">
+  <div class="container text-center">
+    <h3 class="section-title mb-4" style="color:#c0392b; font-weight:700;">About Us</h3>
+    <p class="text-muted mx-auto" style="max-width:700px; font-size:1.1rem; line-height:1.6; color:#555;">
+      At <strong>NonVeg_Resto</strong>, we serve mouth-watering non-vegetarian delights daily. From spicy chicken wings to tender mutton momos, every dish is crafted with fresh ingredients and authentic flavors. Dine-in, order online, or savor our chef’s specials — your cravings, our kitchen!
+    </p>
+    
+  </div>
+</section>
+
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h3 class="section-title">Contact</h3>
+      <p style="color:var(--muted)">📍 Bungalow No.31, Shri, Girinagar Co operative Society, Road, Devendra Karualya Lane, Raghav Nagar, Chitanya Nagar, Kala Nagar, Dhankawadi, Pune, Maharashtra 411043, India.; | &nbsp; 📞 +91 7447328498 &nbsp; | &nbsp; ✉ tastymomo@gmail.com</p>
+    </div>
+  </section>
+
+  <!-- Cart Drawer -->
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <header class="drawer-head" style="display:flex; align-items:center; justify-content:space-between;">
+      <h3>🧺 Your Basket</h3>
+      <button class="btn ghost" id="closeCart">Close</button>
+    </header>
+    <div class="items" id="cartItems"></div>
+    <div class="totals">
+      <div class="row"><span>Subtotal</span><strong>₹ <span id="subTotal">0</span></strong></div>
+      <div class="row"><span>GST (5%)</span><span>₹ <span id="tax">0</span></span></div>
+      <div class="row"><span>Delivery</span><span id="deliveryLabel">₹ <span id="delivery">0</span></span></div>
+      <div class="row grand"><span>Total</span><span>₹ <span id="grand">0</span></span></div>
+      <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+      <small style="color:var(--muted)">Free delivery on orders ₹499+ • Secure checkout</small>
+    </div>
+  </aside>
+
+  <!-- Checkout Modal -->
+  <div class="modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="chkTitle">
+    <div class="modal-card">
+      <h3 id="chkTitle">Checkout</h3>
+      <form id="checkoutForm" class="form" autocomplete="on">
+        <div>
+          <label>Full Name
+            <input required name="name" placeholder="Name" />
+          </label>
+        </div>
+        <div>
+          <label>Phone Number
+            <input required name="phone" inputmode="numeric" pattern="[0-9]{10}" placeholder="+91-0000000000" />
+          </label>
+        </div>
+        <div class="full">
+          <label>Address
+            <textarea required name="address" placeholder="Flat, Street, Area, City, Pincode"></textarea>
+          </label>
+        </div>
+        <div>
+          <label>Payment Method
+            <select name="payment" required>
+              <option value="COD">Cash on Delivery</option>
+              <option value="UPI">UPI</option>
+              <option value="Card">Card</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <label>Promo Code
+            <input name="promo" placeholder="Enter code (e.g., pritam50)" />
+          </label>
+        </div>
+        <div class="full" style="display:flex; gap:10px; justify-content:flex-end; margin-top:6px;">
+          <button type="button" class="btn ghost" id="cancelCheckout">Cancel</button>
+          <button type="submit" class="btn">Place Order</button>
+        </div>
+      </form>
+      <div id="orderSuccess" class="order-success"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+      <small>© <span id="year"></span> Momos Basket</small>
+      <small>Made with ❤</small>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
